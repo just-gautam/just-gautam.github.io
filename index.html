@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gautam Bhardwaj | Data Analyst</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23020617'/%3E%3Ctext x='32' y='42' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='%2338bdf8' text-anchor='middle'%3EGB%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #111827, #020617);
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    a { color: #38bdf8; text-decoration: none; }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 18px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(2,6,23,0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: #f8fafc;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .logo span { color: #38bdf8; }
+
+    .social-icons { display: flex; align-items: center; }
+    .social-icons a {
+      margin-right: 14px;
+      color: #cbd5f5;
+      transition: color 0.3s ease;
+      display: inline-flex;
+    }
+    .social-icons a:last-child { margin-right: 0; }
+    .social-icons a svg { width: 20px; height: 20px; fill: currentColor; }
+    .social-icons a:hover { color: #38bdf8; }
+
+    /* DESKTOP NAV LINKS */
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+    .nav-links a {
+      margin-left: 28px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #cbd5f5;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover { color: #38bdf8; }
+    .nav-links a.active { color: #38bdf8; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+    }
+    .hero h2 {
+      font-size: 64px;
+      font-weight: 800;
+      margin-bottom: 25px;
+      animation: fadeUp 1s ease;
+    }
+    .hero h2 span { color: #38bdf8; }
+    .hero p {
+      max-width: 780px;
+      margin: auto;
+      font-size: 19px;
+      color: #c7d2fe;
+      animation: fadeUp 1.3s ease;
+    }
+    .hero .cta-line {
+      margin-top: 22px;
+      font-size: 16px;
+      color: #94a3b8;
+    }
+
+    .buttons {
+      margin-top: 45px;
+      animation: fadeUp 1.6s ease;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 8px;
+      border: 1px solid #38bdf8;
+      margin: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      color: #020617;
+    }
+    .btn:hover { transform: translateY(-3px); }
+
+    /* MOBILE MENU DROPDOWN (hidden on desktop) */
+    .menu { position: relative; display: none; }
+    .menu-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 6px;
+    }
+    .menu-btn .bar {
+      width: 22px;
+      height: 2px;
+      background: #cbd5f5;
+      transition: background 0.3s ease;
+    }
+    .menu-btn:hover .bar { background: #38bdf8; }
+
+    .menu-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 40px;
+      background: rgba(2,6,23,0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(148,163,184,0.15);
+      border-radius: 14px;
+      width: 220px;
+      padding: 8px 0;
+      z-index: 1001;
+    }
+    .menu-content.open { display: block; }
+    .menu-content a {
+      display: block;
+      width: 100%;
+      padding: 14px 22px;
+      font-size: 15px;
+      color: #cbd5f5;
+    }
+    .menu-content a:hover,
+    .menu-content a:focus {
+      background: rgba(56,189,248,0.2);
+      color: #38bdf8;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      .menu { display: block; }
+      nav { padding: 16px 24px; }
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 110px 20px;
+    }
+    section h3 {
+      font-size: 38px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    .section-intro {
+      text-align: center;
+      max-width: 900px;
+      margin: -50px auto 50px;
+      color: #c7d2fe;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
+    }
+    .card {
+      background: linear-gradient(180deg, #020617, #020617);
+      border: 1px solid rgba(148,163,184,0.15);
+      padding: 35px;
+      border-radius: 18px;
+      transition: all 0.4s ease;
+    }
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 50px rgba(56,189,248,0.15);
+      border-color: #38bdf8;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .cert-pending {
+      display: inline-block;
+      background: rgba(250,204,21,0.12);
+      border: 1px solid rgba(250,204,21,0.4);
+      color: #facc15;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .card-thumb {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      display: block;
+      border: 1px solid rgba(148,163,184,0.15);
+      background: #0b1120;
+    }
+    .thumb-placeholder {
+      width: 100%;
+      height: 170px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(148,163,184,0.15);
+      background: linear-gradient(135deg, #0b1120, #111827);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .thumb-placeholder svg { width: 46px; height: 46px; }
+    .thumb-placeholder span {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #94a3b8;
+      text-transform: uppercase;
+    }
+    .card h4 {
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+    .card p {
+      color: #cbd5f5;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    .card ul {
+      color: #cbd5f5;
+      font-size: 14.5px;
+      margin: 0 0 14px 18px;
+    }
+    .card ul li { margin-bottom: 6px; }
+    .card .cert-meta {
+      color: #94a3b8;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .skill-badge {
+      background: rgba(56,189,248,0.08);
+      border: 1px solid rgba(56,189,248,0.3);
+      color: #e0f2fe;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* EXPERIENCE */
+    .exp-card {
+      background: linear-gradient(180deg, #020617, #020617);
+      border: 1px solid rgba(148,163,184,0.15);
+      border-radius: 18px;
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .exp-card h4 {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+    .exp-card .exp-role {
+      color: #38bdf8;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .exp-card .exp-date {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .exp-card ul {
+      color: #cbd5f5;
+      font-size: 15px;
+      margin-left: 20px;
+    }
+    .exp-card ul li { margin-bottom: 12px; }
+
+    .edu-block {
+      max-width: 900px;
+      margin: 40px auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .edu-block .edu-item {
+      border-left: 2px solid #38bdf8;
+      padding-left: 18px;
+    }
+    .edu-block h5 {
+      font-size: 16px;
+      color: #f8fafc;
+      margin-bottom: 4px;
+    }
+    .edu-block p {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      background: #020617;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    /* FEEDBACK SECTION */
+    .feedback {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.08), rgba(2,6,23,0.95));
+    }
+
+    .feedback h2 {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .feedback p {
+      max-width: 800px;
+      margin: 10px auto;
+      color: #c7d2fe;
+      font-size: 18px;
+    }
+
+    .feedback a {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/gautam-bhardwaj-697619369" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://github.com/just-gautam" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.2c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 2.5-.34c.85 0 1.71.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.2C22 6.58 17.52 2 12 2z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="menu">
+    <button class="menu-btn" aria-label="Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <div class="menu-content">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <h2>Hi, I'm <span>Gautam Bhardwaj</span></h2>
+    <p>
+      I don't just analyze data — I find the number that changes the decision.
+      From 50,000-row datasets to executive-ready dashboards, that's the job.
+    </p>
+    <p class="cta-line">
+      Feel free to reach out and connect with me on LinkedIn — all my projects are updated on GitHub.
+    </p>
+    <div class="buttons">
+      <a class="btn primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gautambhardwaj261203@gmail.com&amp;su=Let%27s%20connect" target="_blank">Hire Me</a>
+      <a class="btn" href="https://www.linkedin.com/in/gautam-bhardwaj-697619369" target="_blank">LinkedIn</a>
+      <a class="btn" href="Gautam_Bhardwaj_Resume.pdf" target="_blank">Download Resume</a>
+    </div>
+  </div>
+</div>
+
+<section id="projects">
+  <h3>Projects</h3>
+  <p class="section-intro">
+    Explore my work to see how I can help organizations uncover insights, optimize processes, and make data-driven decisions for success.
+  </p>
+  <div class="grid">
+    <div class="card reveal">
+      <div class="thumb-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.6"><path d="M12 22c-4-1-8-5-8-11a9 9 0 0 1 9-9c1 5 1 9-1 13-1 2-3 4-5 5"/><path d="M4 11c4 0 8 2 8 8"/></svg>
+        <span>Process Mining · ML</span>
+      </div>
+      <h4>Summer Analytics 2026 Capstone — Decarbonizing Travel</h4>
+      <p>Python, LightGBM, Process Mining · IIT Guwahati x Celonis program</p>
+      <ul>
+        <li>Process-mined 65,289 corporate travel trips (178,090 tonnes CO2e, $140.5M spend) to identify emissions hotspots.</li>
+        <li>Trained a LightGBM classifier (5-fold stratified CV) to predict high-carbon trips pre-booking, achieving ~0.999 ROC-AUC with no label leakage.</li>
+      </ul>
+      <a href="https://github.com/just-gautam/summer-analytics-2026-capstone" target="_blank">View Project on GitHub →</a>
+    </div>
+    <div class="card reveal">
+      <img class="card-thumb" src="digital-marketing-dashboard.png" alt="Digital Marketing Performance Dashboard screenshot" loading="lazy">
+      <h4>Digital Marketing Analysis</h4>
+      <p>Python, Pandas, SQLite, Matplotlib, Looker Studio</p>
+      <ul>
+        <li>Analyzed 30,000 rows of multi-platform marketing data (Meta, Google Search, TikTok, Snapchat, LinkedIn, Google Display) to compare ROI, CTR, CPM, and funnel conversion.</li>
+        <li>Found Google Search generated ~6x more revenue than Meta ($10.3M vs $1.6M) and was the only platform with positive ROI (+284%).</li>
+        <li>Built a live, filterable Looker Studio dashboard with platform/placement/country/date filters and KPI cards.</li>
+      </ul>
+      <a href="https://github.com/just-gautam/digital-marketing-analysis" target="_blank">View Project on GitHub →</a><br>
+      <a href="https://datastudio.google.com/s/uab391qgCRU" target="_blank">View Live Dashboard →</a>
+    </div>
+    <div class="card reveal">
+      <div class="thumb-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.6"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+        <span>SQL &amp; Python</span>
+      </div>
+      <h4>End-to-End E-Commerce Data Analysis (Olist Dataset)</h4>
+      <p>Python, SQLite, Pandas, Seaborn</p>
+      <ul>
+        <li>Wrote SQL queries (multi-table joins across orders, customers, products, sellers, payments; subqueries; GROUP BY aggregations) against 100K+ orders.</li>
+        <li>Answered 9 defined business questions on revenue trends, product categories, payment methods, and top sellers.</li>
+      </ul>
+      <a href="https://github.com/just-gautam/ecommerce-sql-python-analysis" target="_blank">View Project on GitHub →</a>
+    </div>
+    <div class="card reveal">
+      <img class="card-thumb" src="https://raw.githubusercontent.com/just-gautam/global-cricket-analytics-dashboard/main/screenshots/dashboard_preview.png%20.png" alt="Global Cricket Analytics Dashboard screenshot" loading="lazy">
+      <h4>Global Cricket Analytics Dashboard</h4>
+      <p>Excel / WPS</p>
+      <ul>
+        <li>Cleaned and modeled international cricket match data (2014–2026).</li>
+        <li>Built an interactive dashboard with pivot tables, slicers, and KPIs on team performance, venues, and season trends.</li>
+      </ul>
+      <a href="https://github.com/just-gautam/global-cricket-analytics-dashboard" target="_blank">View Project on GitHub →</a>
+    </div>
+    <div class="card reveal">
+      <div class="thumb-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z"/><path d="m9.5 12 2 2 3.5-4"/></svg>
+        <span>Flask &amp; MySQL</span>
+      </div>
+      <h4>Cybercrime Reporting System</h4>
+      <p>Flask, MySQL, HTML</p>
+      <ul>
+        <li>Built a secure web application for reporting cybercrime, managing cases, and tracking evidence end to end.</li>
+      </ul>
+      <a href="https://github.com/just-gautam/cybercrime-reporting-system" target="_blank">View Project on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h3>Skills</h3>
+  <div class="skills-grid">
+    <span class="skill-badge">SQL(Joins, Subqueries, Aggregations)</span>
+    <span class="skill-badge">Databases/CRUD(postgesql,nosql etc)</span>
+    <span class="skill-badge">Python(Pandas, NumPy,Seaborn,matplotlib)</span>
+    <span class="skill-badge">Excel(VLOOKUP, SUMPRODUCT, Pivot Tables)</span>
+    <span class="skill-badge">Google Sheets</span>
+    <span class="skill-badge">Looker Studio</span>
+    <span class="skill-badge">Power Bi</span>
+    <span class="skill-badge">A/B Testing</span>
+    <span class="skill-badge">Statistical Analysis</span>
+    <span class="skill-badge">Process Data Mining</span>
+    <span class="skill-badge">SDLC</span>
+    <span class="skill-badge">Manual Testing/Test cases</span>
+    <span class="skill-badge">BRD(documentation)</span>
+    <span class="skill-badge">LightGBM</span>
+    <span class="skill-badge">Limelight SSP & DSP/AdTech(operations)</span>
+    <span class="skill-badge">Feature/Prompt Engineering</span>
+    <span class="skill-badge">Git &amp; GitHub</span>
+    <span class="skill-badge">VS Code</span>
+    <span class="skill-badge">Frontend(HTML/CSS/JS)</span>
+    <span class="skill-badge">Jupyter Notebook</span>
+  </div>
+</section>
+
+<section id="experience">
+  <h3>Experience</h3>
+  <div class="exp-card reveal">
+    <h4>Data Analyst Intern (Ad Operations)</h4>
+    <div class="exp-role">JustBaat Mediatech (justbaat.ai)</div>
+    <div class="exp-date">Jun 2026 – Aug 2026</div>
+    <ul>
+      <li>Automated daily data reporting across 36+ live data sources (ad-tech platform APIs) using Python, cutting manual reporting turnaround by 70%+</li>
+      <li>Own end-to-end data configuration and accuracy for 6+ external partner accounts (Limelight SSP platform: Adzim, Adstork, RTBYield, Auctera, Collectcent, Adcanny) — maintaining business rule sets (traffic quotas, floor pricing, inclusion/exclusion lists) at domain and bundle level</li>   
+      <li>Sole point of contact for a live external enterprise account (Collectcent Digital Media): delivered 5 data integrations live same-day and independently run monthly data-quality and configuration review cycles.</li>
+      <li>Audited 20-50 supply and demand partner accounts, producing color-coded Excel reports that flagged performance issues before they hit revenue.</li>
+      <li>Rebuilt a manual VLOOKUP/SUMPRODUCT banner-inventory lookup in Python, scaling it to 54,000+ rows.</li>
+      <li>Built a Python tool to convert SSP/DSP selector JSON files directly into structured Excel reports, removing a manual conversion step from the workflow.</li>
+      <li>Sourced and qualified B2B partners across international publishers, DSPs, and OTT platforms (Apollo.io, LinkedIn); built a COUNTIFS,Vlookup based dashboard tracking leads.</li>
+      <li>Trained a fellow intern end-to-end on the Limelight SSP platform: endpoint creation, live/whitelist/blacklist management, and format specific setup across CTV, in-app (banner/video), and web (banner/video).</li>
+      <li>Built a formula-driven Google Sheets dashboard aggregating outreach data (SUMIF/VLOOKUP/QUERY) across 4 pipeline tabs (Jungle, OTT, Prebid/Postbid, oRTB) into a single live view of mail sent, follow-ups, and deal status.</li>
+    </ul>
+  </div>
+
+  <div class="edu-block">
+    <div class="edu-item">
+      <h5>Master of Computer Applications (MCA)</h5>
+      <p>Jagannath University, Jagannath Community College, Rohini, Delhi (2025 – Present)</p>
+    </div>
+    <div class="edu-item">
+      <h5>Bachelor of Computer Applications (BCA)</h5>
+      <p>College of Architecture and Design, MDU (2022 – 2025)</p>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <h3>Certificates</h3>
+  <div class="grid">
+    <div class="card reveal">
+      <h4>AI Appreciate Badge – AI For All</h4>
+      <p class="cert-meta">Issued by CBSE and Intel · 2026</p>
+      <a href="https://ai-for-all.in/#/badge?id=U2FsdGVkX1s1L2a3S4hNwI2XPkEJx1rhF2JZXdas1L2a3S4hXFdAAlgXyoeGSM85qFiELwHIzoxwxp1L2u3Scz" target="_blank">View Certificate →</a>
+    </div>
+    <div class="card reveal">
+      <h4>Academic Process Mining Fundamentals</h4>
+      <p class="cert-meta">Issued by Celonis · 2026</p>
+      <a href="https://www.credly.com/badges/ebaa3e8c-0237-4d42-9622-538e3508ae9e/public_url" target="_blank">View Certificate →</a>
+    </div>
+    <div class="card reveal">
+      <h4>Microsoft Excel – Coursera</h4>
+      <p class="cert-meta">Issued by Coursera · 2025</p>
+      <p>Certification covering Excel formulas, Pivot Tables, data analysis, and visualization techniques for business analytics.</p>
+      <a href="https://www.coursera.org/account/accomplishments/records/C9O6NT4MIAHP" target="_blank">View Certificate →</a>
+    </div>
+    <div class="card reveal">
+      <span class="cert-pending">Certificate Pending</span>
+      <h4>Summer Analytics 2026 (Data Science &amp; Machine Learning)</h4>
+      <p class="cert-meta">IIT Guwahati · Consulting &amp; Analytics Club</p>
+      <p>Completed the 6-week program and the Decarbonizing Travel capstone with Celonis. Certificates are being processed and will be emailed by the end of August 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h3>Contact</h3>
+  <p style="text-align:center">📧 <a href="mailto:gautambhardwaj261203@gmail.com">gautambhardwaj261203@gmail.com</a></p>
+  <p style="text-align:center">🔗 <a href="https://www.linkedin.com/in/gautam-bhardwaj-697619369" target="_blank">linkedin.com/in/gautam-bhardwaj</a></p>
+</section>
+
+<section class="feedback" id="feedback">
+  <div>
+    <h2>Share your valuable feedback!</h2>
+    <p>
+      Share your comments or feedback on my
+      <a href="https://www.linkedin.com/in/gautam-bhardwaj-697619369" target="_blank">
+        LinkedIn profile
+      </a>.
+    </p>
+    <p>
+      Let's connect and explore opportunities to collaborate and contribute to data-driven success.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Gautam Bhardwaj • Data Analyst Portfolio
+</footer>
+
+<script>
+  const menuBtn = document.querySelector('.menu-btn');
+  const menuContent = document.querySelector('.menu-content');
+
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menuContent.classList.toggle('open');
+  });
+
+  document.addEventListener('click', () => {
+    menuContent.classList.remove('open');
+  });
+
+  // Scroll-reveal animation for cards
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Active nav-link highlighting on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a, .menu-content a');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+  sections.forEach(section => navObserver.observe(section));
+</script>
+
+</body>
+</html>
