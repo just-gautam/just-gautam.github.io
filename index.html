@@ -462,7 +462,7 @@
       <p>Python, LightGBM, Process Mining · IIT Guwahati x Celonis program</p>
       <ul>
         <li>Process-mined 65,289 corporate travel trips (178,090 tonnes CO2e, $140.5M spend) to identify emissions hotspots.</li>
-        <li>Trained a LightGBM classifier (5-fold stratified CV) to predict high-carbon trips pre-booking, achieving ~0.999 ROC-AUC with no label leakage.</li>
+        <li>Engineered features from trip, event-log, and attribute data; built a predictive model (LightGBM classifier, 5-fold stratified CV) to flag high-carbon trips pre-booking, achieving ~0.999 ROC-AUC with no label leakage.</li>
       </ul>
       <a href="https://github.com/just-gautam/summer-analytics-2026-capstone" target="_blank">View Project on GitHub →</a>
     </div>
@@ -486,7 +486,7 @@
       <h4>End-to-End E-Commerce Data Analysis (Olist Dataset)</h4>
       <p>Python, SQLite, Pandas, Seaborn</p>
       <ul>
-        <li>Wrote SQL queries (multi-table joins across orders, customers, products, sellers, payments; subqueries; GROUP BY aggregations) against 100K+ orders.</li>
+        <li>Built a relational data model spanning 5 tables (orders, customers, products, sellers, payments) and wrote SQL queries (multi-table joins, subqueries, GROUP BY aggregations) against 100K+ orders.</li>
         <li>Answered 9 defined business questions on revenue trends, product categories, payment methods, and top sellers.</li>
       </ul>
       <a href="https://github.com/just-gautam/ecommerce-sql-python-analysis" target="_blank">View Project on GitHub →</a>
@@ -549,15 +549,15 @@
     <div class="exp-role">JustBaat Mediatech (justbaat.ai)</div>
     <div class="exp-date">Jun 2026 – Aug 2026</div>
     <ul>
-      <li>Automated daily data reporting across 36+ live data sources (ad-tech platform APIs) using Python, cutting manual reporting turnaround by 70%+</li>
+      <li>Designed and shipped a Revenue Analytics Dashboard (Google Sheets → Looker Studio) monitoring SSP/DSP revenue across multiple advertising partners — KPI cards, daily trend, monthly partner comparison, dynamic date filtering — delivered in 2 days on stakeholder request. [<a href="https://github.com/just-gautam/adtech-revenue-analytics" target="_blank">GitHub</a>] [<a href="https://datastudio.google.com/s/ntMYm5BJny4" target="_blank">Live Dashboard</a>]</li>
+      <li>Diagnosed a demand-side performance gap by comparing endpoint-level revenue against request volume, isolating Banner formats as underperforming versus Video/CTV and recommending a QPS reallocation.</li>
+      <li>Built an automated Python reporting solution for daily MIS-style revenue reports across 36+ live data sources, cutting manual reporting turnaround by 70%+.</li>
       <li>Own end-to-end data configuration and accuracy for 6+ external partner accounts (Limelight SSP platform: Adzim, Adstork, RTBYield, Auctera, Collectcent, Adcanny) — maintaining business rule sets (traffic quotas, floor pricing, inclusion/exclusion lists) at domain and bundle level</li>   
-      <li>Sole point of contact for a live external enterprise account (Collectcent Digital Media): delivered 5 data integrations live same-day and independently run monthly data-quality and configuration review cycles.</li>
+      <li>Sole point of contact for a live external enterprise account (Collectcent Digital Media): delivered 5 data integrations live same-day and independently run monthly data-quality and configuration review cycles with zero escalations.</li>
       <li>Audited 20-50 supply and demand partner accounts, producing color-coded Excel reports that flagged performance issues before they hit revenue.</li>
-      <li>Rebuilt a manual VLOOKUP/SUMPRODUCT banner-inventory lookup in Python, scaling it to 54,000+ rows.</li>
-      <li>Built a Python tool to convert SSP/DSP selector JSON files directly into structured Excel reports, removing a manual conversion step from the workflow.</li>
-      <li>Sourced and qualified B2B partners across international publishers, DSPs, and OTT platforms (Apollo.io, LinkedIn); built a COUNTIFS,Vlookup based dashboard tracking leads.</li>
-      <li>Trained a fellow intern end-to-end on the Limelight SSP platform: endpoint creation, live/whitelist/blacklist management, and format specific setup across CTV, in-app (banner/video), and web (banner/video).</li>
-      <li>Built a formula-driven Google Sheets dashboard aggregating outreach data (SUMIF/VLOOKUP/QUERY) across 4 pipeline tabs (Jungle, OTT, Prebid/Postbid, oRTB) into a single live view of mail sent, follow-ups, and deal status.</li>
+      <li>Rebuilt a manual VLOOKUP/SUMPRODUCT banner-inventory lookup in Python, scaling it to 54,000+ rows; built a companion tool converting SSP/DSP selector JSON files directly into structured Excel reports.</li>
+      <li>Sourced and qualified B2B partners across international publishers, DSPs, and OTT platforms (Apollo.io, LinkedIn); built a COUNTIFS-based dashboard tracking leads across 4 pipeline stages, and trained a fellow intern end-to-end on the Limelight SSP platform.</li>
+      <li>Built a formula-driven Google Sheets dashboard (SUMIF/QUERY) aggregating outreach data across 4 pipeline tabs into a single live view of mail sent, follow-ups, and deal status.</li>
     </ul>
   </div>
 
