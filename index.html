@@ -36,59 +36,68 @@
     ::selection { background: #cfdcff; }
     a:focus-visible, button:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 10px; }
 
-    /* ---------- ANNOUNCEMENT ---------- */
-    .announce { background: #0f172a; color: #e2e8f0; text-align: center; font-size: 14.5px; padding: 15px 56px; position: relative; }
-    .announce a { text-decoration: underline; text-underline-offset: 3px; color: #fff; font-weight: 600; }
-    .announce button { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border-radius: 8px; border: 0; background: rgba(255,255,255,0.08); color: #fff; cursor: pointer; font-size: 18px; line-height: 1; }
-    .announce button:hover { background: rgba(255,255,255,0.18); }
 
     /* ---------- NAV ---------- */
-    nav { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-    .nav-in { max-width: 1240px; margin: auto; padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 21px; letter-spacing: -.3px; }
-    .brand .mark { width: 44px; height: 44px; border-radius: 13px; background: #111; color: #fff; display: grid; place-items: center; font-size: 16px; font-weight: 700; letter-spacing: 0; }
-    .nav-links { display: flex; align-items: center; gap: 6px; }
-    .nav-links a { padding: 9px 18px; font-size: 16px; font-weight: 500; color: var(--ink); border-radius: 999px; transition: background .2s, color .2s; }
-    .nav-links a:hover { background: #f3f4f6; }
-    .nav-links a.active { background: #f3f4f6; }
-    .nav-right { display: flex; align-items: center; gap: 12px; }
-    .social { display: flex; gap: 6px; }
-    .social a { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); color: var(--ink); transition: background .2s, color .2s, border-color .2s; }
-    .social a:hover { background: #111; color: #fff; border-color: #111; }
+    nav { position: fixed; top: 14px; left: 0; right: 0; z-index: 1000; padding: 0 16px; pointer-events: none; }
+    .nav-in { pointer-events: auto; max-width: 1080px; margin: 0 auto; padding: 8px 8px 8px 10px; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: rgba(255,255,255,0.72); backdrop-filter: blur(18px) saturate(1.6); -webkit-backdrop-filter: blur(18px) saturate(1.6); border: 1px solid rgba(15,17,21,0.08); border-radius: 999px; box-shadow: 0 8px 30px rgba(15,17,21,0.06), inset 0 1px 0 rgba(255,255,255,0.9); transition: max-width .4s ease, background .3s, box-shadow .3s; }
+    nav.scrolled .nav-in { max-width: 960px; background: rgba(255,255,255,0.9); box-shadow: 0 14px 40px rgba(15,17,21,0.12), inset 0 1px 0 rgba(255,255,255,0.9); }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16.5px; letter-spacing: -.2px; padding-right: 6px; white-space: nowrap; }
+    .brand .mark { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #222733, #0b0d12); color: #fff; display: grid; place-items: center; font-size: 13.5px; font-weight: 700; letter-spacing: .5px; box-shadow: 0 4px 12px rgba(15,17,21,0.28); transition: transform .3s; }
+    .brand:hover .mark { transform: rotate(-8deg) scale(1.06); }
+    .nav-links { position: relative; display: flex; align-items: center; gap: 2px; padding: 4px; background: rgba(15,17,21,0.045); border-radius: 999px; }
+    .nav-ind { position: absolute; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 999px; background: #fff; box-shadow: 0 2px 10px rgba(15,17,21,0.10), 0 0 0 1px rgba(15,17,21,0.05); opacity: 0; pointer-events: none; transition: transform .38s cubic-bezier(.4,0,.2,1), width .38s cubic-bezier(.4,0,.2,1), opacity .25s; }
+    .nav-links a { position: relative; z-index: 1; padding: 9px 18px; font-size: 14.5px; font-weight: 500; color: var(--ink-2); border-radius: 999px; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-right { display: flex; align-items: center; gap: 6px; }
+    .social { display: flex; gap: 2px; }
+    .social a { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; color: var(--ink-2); transition: background .2s, color .2s, transform .2s; }
+    .social a:hover { background: #f1f3f9; color: var(--ink); transform: translateY(-2px); }
     .social svg { width: 18px; height: 18px; fill: currentColor; }
+    .nav-cta { display: inline-flex; align-items: center; gap: 10px; padding: 7px 8px 7px 20px; border-radius: 999px; background: #0b0d12; color: #fff; font-size: 14.5px; font-weight: 600; box-shadow: 0 6px 16px rgba(15,17,21,0.22); transition: transform .25s, box-shadow .25s; }
+    .nav-cta .arr { width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #0b0d12; display: grid; place-items: center; transition: transform .3s; }
+    .nav-cta .arr svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(15,17,21,0.28); }
+    .nav-cta:hover .arr { transform: rotate(-45deg); }
     .pill-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 14px; font-size: 15.5px; font-weight: 600; transition: transform .25s, box-shadow .25s, background .25s; }
     .pill-btn.dark { background: #0b0d12; color: #fff; box-shadow: 0 6px 18px rgba(15,17,21,.25); }
     .pill-btn.dark:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(15,17,21,.3); }
     .pill-btn.light { background: #fff; color: var(--ink); border: 1px solid var(--line); }
     .pill-btn.light:hover { border-color: #111; transform: translateY(-2px); }
 
-    .menu-btn { display: none; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line); background: #fff; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 4px; }
-    .menu-btn span { width: 18px; height: 2px; background: #111; border-radius: 2px; transition: transform .3s, opacity .3s; }
+    .menu-btn { display: none; width: 42px; height: 42px; border-radius: 50%; border: 0; background: rgba(15,17,21,0.06); cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 4px; transition: background .2s; }
+    .menu-btn:hover { background: rgba(15,17,21,0.1); }
+    .menu-btn span { width: 17px; height: 2px; background: #111; border-radius: 2px; transition: transform .3s, opacity .3s; }
     .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
     .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
     .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-    .mobile-menu { display: none; border-top: 1px solid var(--line); padding: 10px 20px 18px; background: #fff; }
-    .mobile-menu.open { display: block; }
-    .mobile-menu a { display: block; padding: 14px 8px; font-weight: 500; border-bottom: 1px solid var(--line); }
-    .mobile-menu a:last-child { border-bottom: 0; }
+    .mobile-menu { display: none; pointer-events: auto; max-width: 1080px; margin: 10px auto 0; padding: 10px; background: rgba(255,255,255,0.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(15,17,21,0.08); border-radius: 28px; box-shadow: 0 20px 50px rgba(15,17,21,0.14); }
+    .mobile-menu.open { display: block; animation: menuIn .25s ease; }
+    @keyframes menuIn { from { opacity: 0; transform: translateY(-8px) scale(.98); } }
+    .mobile-menu a { display: flex; align-items: center; padding: 14px 16px; font-weight: 600; border-radius: 18px; transition: background .2s; }
+    .mobile-menu a:hover { background: #f1f3f9; }
+    .mobile-menu a.mm-cta { background: #0b0d12; color: #fff; justify-content: center; margin-top: 6px; }
 
     @media (max-width: 980px) {
-      .nav-links, .social, .nav-right .pill-btn { display: none; }
+      .nav-links, .social, .nav-cta { display: none; }
       .menu-btn { display: flex; }
-      .nav-in { padding: 14px 20px; }
+      .nav-in { padding: 8px 8px 8px 10px; }
     }
 
     /* ---------- HERO ---------- */
-    .hero { text-align: center; padding: 90px 24px 40px; max-width: 1100px; margin: auto; }
+    .hero { text-align: center; padding: 150px 24px 40px; max-width: 1100px; margin: auto; }
     .hero h1 { font-size: clamp(44px, 8.4vw, 98px); line-height: 1.02; font-weight: 700; letter-spacing: -0.045em; }
     .hero h1 .gray { color: #8c8c8f; display: block; }
     .hero .sub { max-width: 720px; margin: 36px auto 0; font-size: clamp(16px, 2vw, 19.5px); color: var(--ink-2); font-weight: 500; }
     .hero .sub2 { margin-top: 12px; color: var(--gray); font-size: 15.5px; }
     .cta { margin-top: 38px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
     .cta .big { padding: 20px 44px; font-size: 18px; border-radius: 999px; }
-    .cta .row { display: flex; flex-wrap: wrap; gap: 8px 26px; justify-content: center; }
-    .cta .row a { font-weight: 600; text-decoration: underline; text-underline-offset: 4px; font-size: 16px; }
-    .cta .row a:hover { color: var(--brand); }
+    .cta .row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta .row a { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 15.5px; color: var(--ink); transition: transform .25s, box-shadow .25s, background .25s, color .25s; }
+    .cta .row a svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .cta .row a.l-in { background: var(--blue); }
+    .cta .row a.l-cv { background: var(--peach); }
+    .cta .row a.l-wk { background: var(--lav); }
+    .cta .row a:hover { background: #111; color: #fff; transform: translateY(-3px); box-shadow: 0 12px 26px rgba(15,17,21,.18); }
 
 
     /* stats as pastel tabs */
@@ -198,26 +207,41 @@
       .exp-card { padding: 26px 18px; }
       .exp-group { padding: 18px; }
       section { padding: 80px 16px 10px; }
-      .announce { padding: 14px 52px 14px 16px; font-size: 13.5px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; animation: none !important; }
       .reveal { opacity: 1; transform: none; }
       html { scroll-behavior: auto; }
     }
+
+
+    /* ---------- FLOATING BACKGROUND ---------- */
+    .hero, .stats, section, footer { position: relative; z-index: 1; }
+    .fl { position: absolute; z-index: -1; pointer-events: none; will-change: transform; }
+    .fl-in { animation: flt var(--dur, 9s) ease-in-out var(--delay, 0s) infinite alternate; }
+    @keyframes flt { from { transform: translate3d(0,0,0) rotate(var(--r0, -6deg)); } to { transform: translate3d(0,-22px,0) rotate(var(--r1, 6deg)); } }
+    .fl.d2 { opacity: .85; } .fl.d2 .fl-in { filter: blur(1.2px); }
+    .fl.d3 { opacity: .6; }  .fl.d3 .fl-in { filter: blur(3px); }
+    .fcard { width: var(--s); height: var(--s); border-radius: calc(var(--s) * .27); background: var(--c); border: 1px solid rgba(15,17,21,.07); box-shadow: 0 18px 40px rgba(15,17,21,.10), inset 0 1px 0 rgba(255,255,255,.75); display: grid; place-items: center; }
+    .fcard svg { width: 46%; height: 46%; stroke: #14161c; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .fcard svg .f { fill: #14161c; }
+    .fchip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #fff; border: 1px solid rgba(15,17,21,.08); box-shadow: 0 12px 30px rgba(15,17,21,.09); font-weight: 700; font-size: 13.5px; color: #14161c; white-space: nowrap; }
+    .fchip i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
+    .fstar { width: var(--s); height: var(--s); }
+    .fstar svg { width: 100%; height: 100%; fill: var(--c); stroke: rgba(15,17,21,.18); stroke-width: .8; stroke-linejoin: round; }
+    .fdot { width: var(--s); height: var(--s); border-radius: 50%; background: var(--c); }
+    .fring { width: var(--s); height: var(--s); border-radius: 50%; border: 3px solid var(--c); }
+    @media (max-width: 1100px) { .fl { opacity: .55; } .fl.d3 { opacity: .35; } }
+    @media (max-width: 760px) { .fl-in { scale: .62; } .fl.hm, section .fl { display: none; } }
   </style>
 </head>
 <body>
-
-<div class="announce" id="announce">
-  Open to data analyst roles &amp; internships — let's work together. <a href="#contact">Get in touch</a>
-  <button aria-label="Close announcement" id="announce-close">×</button>
-</div>
 
 <nav id="nav">
   <div class="nav-in">
     <a href="#top" class="brand"><span class="mark">GB</span> Gautam Bhardwaj</a>
     <div class="nav-links">
+      <span class="nav-ind" id="nav-ind"></span>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
@@ -233,7 +257,7 @@
           <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.2c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 2.5-.34c.85 0 1.71.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.2C22 6.58 17.52 2 12 2z"/></svg>
         </a>
       </div>
-      <a class="pill-btn dark" href="mailto:gautambhardwaj261203@gmail.com?subject=Let%27s%20connect">Hire Me</a>
+      <a class="nav-cta" href="mailto:gautambhardwaj261203@gmail.com?subject=Let%27s%20connect">Hire Me <span class="arr"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a>
       <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -243,12 +267,20 @@
     <a href="#experience">Experience</a>
     <a href="#certificates">Certificates</a>
     <a href="#contact">Contact</a>
+    <a class="mm-cta" href="mailto:gautambhardwaj261203@gmail.com?subject=Let%27s%20connect">Hire Me</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  Data Analyst · MCA Student · Delhi
-  </div>
+  <div class="fl d1" style="top:70px;left:3%;--c:#dbe8ff;--r0:-4deg;--r1:4deg;--dur:11s;--delay:0s;--s:104px" data-s="0.06" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><rect x="4" y="12" width="4" height="8" rx="1.2"/><rect x="10" y="7" width="4" height="13" rx="1.2"/><rect x="16" y="3" width="4" height="17" rx="1.2"/></svg></div></div></div>
+  <div class="fl d1 hm" style="top:300px;left:13%;--c:#2f4fd6;--r0:-8deg;--r1:9deg;--dur:12s;--delay:-1s;--s:0px" data-s="0.07" aria-hidden="true"><div class="fl-in"><div class="fchip"><i></i>SQL</div></div></div>
+  <div class="fl d2" style="top:90px;right:4%;--c:#ffe3d3;--r0:-4deg;--r1:7deg;--dur:8s;--delay:-8s;--s:92px" data-s="-0.05" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path class="f" d="M12 4a8 8 0 0 1 8 8h-8z"/></svg></div></div></div>
+  <div class="fl d1 hm" style="top:330px;right:9%;--c:#e9a800;--r0:-6deg;--r1:3deg;--dur:8s;--delay:-6s;--s:0px" data-s="0.08" aria-hidden="true"><div class="fl-in"><div class="fchip"><i></i>Python</div></div></div>
+  <div class="fl d1 hm" style="top:470px;left:7%;--c:#f8ebb6;--r0:-3deg;--r1:3deg;--dur:9s;--delay:-1s;--s:36px" data-s="0.06" aria-hidden="true"><div class="fl-in"><div class="fstar"><svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></div></div></div>
+  <div class="fl d2 hm" style="top:520px;right:3%;--c:#d3efdc;--r0:-3deg;--r1:3deg;--dur:12s;--delay:-1s;--s:88px" data-s="-0.06" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 8-9"/><path d="M15 6h5v5"/></svg></div></div></div>
+  <div class="fl d1 hm" style="top:650px;left:2%;--c:#0f7a45;--r0:-6deg;--r1:8deg;--dur:13s;--delay:-9s;--s:0px" data-s="0.08" aria-hidden="true"><div class="fl-in"><div class="fchip"><i></i>ROI +284%</div></div></div>
+  <div class="fl d2 hm" style="top:470px;right:15%;--c:#ffe3d3;--r0:-9deg;--r1:7deg;--dur:12s;--delay:-6s;--s:18px" data-s="0.05" aria-hidden="true"><div class="fl-in"><div class="fdot"></div></div></div>
+  <div class="fl d2 hm" style="top:370px;left:10%;--c:#2f4fd6;--r0:-9deg;--r1:4deg;--dur:8s;--delay:-8s;--s:30px" data-s="0.05" aria-hidden="true"><div class="fl-in"><div class="fring"></div></div></div>
   <h1>Hi, I'm Gautam Bhardwaj<span class="gray">Data Analyst</span></h1>
   <p class="sub">
     I don't just analyze data — I find the number that changes the decision.
@@ -258,9 +290,18 @@
   <div class="cta">
     <a class="pill-btn dark big" href="mailto:gautambhardwaj261203@gmail.com?subject=Let%27s%20connect">Hire Me</a>
     <div class="row">
-      <a href="https://www.linkedin.com/in/gautam-bhardwaj-697619369" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="Gautam_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-      <a href="#projects">See my work</a>
+      <a class="l-in" href="https://www.linkedin.com/in/gautam-bhardwaj-697619369" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="l-cv" href="Gautam_Resume.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        Download Resume
+      </a>
+      <a class="l-wk" href="#projects">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
+        See my work
+      </a>
     </div>
   </div>
 </header>
@@ -273,6 +314,14 @@
 </div>
 
 <section id="projects">
+  <div class="fl d3" style="top:50px;left:4%;--c:#e4dafc;--r0:-7deg;--r1:5deg;--dur:11s;--delay:-2s;--s:96px" data-s="-0.1" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div></div></div>
+  <div class="fl d1" style="top:130px;right:7%;--c:#e5563b;--r0:-8deg;--r1:7deg;--dur:10s;--delay:-8s;--s:0px" data-s="0.07" aria-hidden="true"><div class="fl-in"><div class="fchip"><i></i>A/B Testing</div></div></div>
+  <div class="fl d2 hm" style="top:230px;right:3%;--c:#ffe3d3;--r0:-7deg;--r1:3deg;--dur:12s;--delay:-9s;--s:80px" data-s="-0.05" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg></div></div></div>
+  <div class="fl d1" style="top:260px;left:12%;--c:#dbe8ff;--r0:-6deg;--r1:5deg;--dur:8s;--delay:-8s;--s:32px" data-s="0.06" aria-hidden="true"><div class="fl-in"><div class="fstar"><svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></div></div></div>
+  <div class="fl d1 hm" style="top:620px;left:-5%;--c:#f8ebb6;--r0:-8deg;--r1:7deg;--dur:8s;--delay:-9s;--s:88px" data-s="0.08" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7 6h10M6 8l5 8M18 8l-5 8"/></svg></div></div></div>
+  <div class="fl d2 hm" style="top:920px;right:-5%;--c:#d3efdc;--r0:-6deg;--r1:6deg;--dur:13s;--delay:-8s;--s:90px" data-s="-0.06" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><path d="M12 3v9h9"/><path d="M20.5 15A9 9 0 1 1 9 3.5"/></svg></div></div></div>
+  <div class="fl d3 hm" style="top:1250px;left:-5%;--c:#e4dafc;--r0:-3deg;--r1:9deg;--dur:10s;--delay:-7s;--s:92px" data-s="-0.09" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><rect x="4" y="12" width="4" height="8" rx="1.2"/><rect x="10" y="7" width="4" height="13" rx="1.2"/><rect x="16" y="3" width="4" height="17" rx="1.2"/></svg></div></div></div>
+  <div class="fl d1 hm" style="top:1380px;right:-6%;--c:#2f4fd6;--r0:-2deg;--r1:5deg;--dur:10s;--delay:-3s;--s:0px" data-s="0.07" aria-hidden="true"><div class="fl-in"><div class="fchip"><i></i>Looker Studio</div></div></div>
   <div class="sec-head">
     <span class="chip">Selected work</span>
     <h2>Projects that turn data into decisions</h2>
@@ -351,6 +400,12 @@
 </section>
 
 <section id="skills">
+  <div class="fl d1" style="top:60px;left:5%;--c:#f8ebb6;--r0:-7deg;--r1:8deg;--dur:9s;--delay:-1s;--s:92px" data-s="0.08" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></div></div></div>
+  <div class="fl d1" style="top:110px;right:7%;--c:#8b5cf6;--r0:-5deg;--r1:7deg;--dur:11s;--delay:-5s;--s:0px" data-s="0.07" aria-hidden="true"><div class="fl-in"><div class="fchip"><i></i>Pandas</div></div></div>
+  <div class="fl d2" style="top:240px;left:-3%;--c:#2f4fd6;--r0:-2deg;--r1:5deg;--dur:12s;--delay:-1s;--s:30px" data-s="0.05" aria-hidden="true"><div class="fl-in"><div class="fring"></div></div></div>
+  <div class="fl d1 hm" style="top:120px;right:-2%;--c:#ffe3d3;--r0:-8deg;--r1:7deg;--dur:11s;--delay:-2s;--s:34px" data-s="0.06" aria-hidden="true"><div class="fl-in"><div class="fstar"><svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></div></div></div>
+  <div class="fl d2 hm" style="top:450px;left:-5%;--c:#d3efdc;--r0:-4deg;--r1:4deg;--dur:11s;--delay:-6s;--s:88px" data-s="-0.06" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path class="f" d="M12 4a8 8 0 0 1 8 8h-8z"/></svg></div></div></div>
+  <div class="fl d3 hm" style="top:560px;right:-5%;--c:#dbe8ff;--r0:-9deg;--r1:8deg;--dur:8s;--delay:-8s;--s:84px" data-s="-0.09" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 8-9"/><path d="M15 6h5v5"/></svg></div></div></div>
   <div class="sec-head">
     <span class="chip">Toolkit</span>
     <h2>The only stack you need for every data task</h2>
@@ -400,6 +455,14 @@
 </section>
 
 <section id="experience">
+  <div class="fl d1" style="top:60px;left:4%;--c:#dbe8ff;--r0:-4deg;--r1:5deg;--dur:13s;--delay:-5s;--s:96px" data-s="0.08" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7 6h10M6 8l5 8M18 8l-5 8"/></svg></div></div></div>
+  <div class="fl d1" style="top:110px;right:5%;--c:#e9a800;--r0:-2deg;--r1:7deg;--dur:11s;--delay:-1s;--s:0px" data-s="0.07" aria-hidden="true"><div class="fl-in"><div class="fchip"><i></i>Limelight SSP</div></div></div>
+  <div class="fl d2 hm" style="top:230px;right:17%;--c:#e4dafc;--r0:-8deg;--r1:5deg;--dur:11s;--delay:-1s;--s:30px" data-s="0.06" aria-hidden="true"><div class="fl-in"><div class="fstar"><svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></div></div></div>
+  <div class="fl d1 hm" style="top:520px;left:0%;--c:#ffe3d3;--r0:-9deg;--r1:8deg;--dur:13s;--delay:-4s;--s:92px" data-s="0.08" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><rect x="4" y="12" width="4" height="8" rx="1.2"/><rect x="10" y="7" width="4" height="13" rx="1.2"/><rect x="16" y="3" width="4" height="17" rx="1.2"/></svg></div></div></div>
+  <div class="fl d1 hm" style="top:820px;right:-4%;--c:#0f7a45;--r0:-2deg;--r1:5deg;--dur:13s;--delay:-6s;--s:0px" data-s="0.07" aria-hidden="true"><div class="fl-in"><div class="fchip"><i></i>Python automation</div></div></div>
+  <div class="fl d2 hm" style="top:1100px;left:1%;--c:#d3efdc;--r0:-4deg;--r1:3deg;--dur:11s;--delay:-5s;--s:88px" data-s="-0.06" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><path d="M12 3v9h9"/><path d="M20.5 15A9 9 0 1 1 9 3.5"/></svg></div></div></div>
+  <div class="fl d3 hm" style="top:1400px;right:0%;--c:#f8ebb6;--r0:-7deg;--r1:7deg;--dur:8s;--delay:-7s;--s:92px" data-s="-0.1" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div></div></div>
+  <div class="fl d1 hm" style="top:1660px;left:-3%;--c:#2f4fd6;--r0:-9deg;--r1:4deg;--dur:10s;--delay:-2s;--s:0px" data-s="0.07" aria-hidden="true"><div class="fl-in"><div class="fchip"><i></i>Process Mining</div></div></div>
   <div class="sec-head">
     <span class="chip">Journey</span>
     <h2>Real work, Real impact</h2>
@@ -459,6 +522,11 @@
 </section>
 
 <section id="certificates">
+  <div class="fl d1" style="top:60px;left:5%;--c:#dbe8ff;--r0:-6deg;--r1:6deg;--dur:11s;--delay:-7s;--s:92px" data-s="0.08" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path class="f" d="M12 4a8 8 0 0 1 8 8h-8z"/></svg></div></div></div>
+  <div class="fl d1" style="top:90px;right:6%;--c:#8b5cf6;--r0:-8deg;--r1:4deg;--dur:11s;--delay:-6s;--s:0px" data-s="0.07" aria-hidden="true"><div class="fl-in"><div class="fchip"><i></i>Celonis</div></div></div>
+  <div class="fl d1" style="top:200px;left:15%;--c:#f8ebb6;--r0:-5deg;--r1:4deg;--dur:11s;--delay:-8s;--s:34px" data-s="0.06" aria-hidden="true"><div class="fl-in"><div class="fstar"><svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></div></div></div>
+  <div class="fl d3 hm" style="top:470px;left:-5%;--c:#e4dafc;--r0:-5deg;--r1:8deg;--dur:11s;--delay:-5s;--s:88px" data-s="-0.09" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 8-9"/><path d="M15 6h5v5"/></svg></div></div></div>
+  <div class="fl d2 hm" style="top:610px;right:-3%;--c:#2f4fd6;--r0:-3deg;--r1:4deg;--dur:9s;--delay:-1s;--s:34px" data-s="0.05" aria-hidden="true"><div class="fl-in"><div class="fring"></div></div></div>
   <div class="sec-head">
     <span class="chip">Credentials</span>
     <h2>Certified &amp; Verified</h2>
@@ -494,6 +562,10 @@
 </section>
 
 <section id="contact">
+  <div class="fl d1" style="top:40px;left:6%;--c:#ffe3d3;--r0:-7deg;--r1:4deg;--dur:9s;--delay:-3s;--s:90px" data-s="0.08" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg></div></div></div>
+  <div class="fl d1" style="top:110px;right:8%;--c:#0f7a45;--r0:-9deg;--r1:6deg;--dur:12s;--delay:-2s;--s:0px" data-s="0.07" aria-hidden="true"><div class="fl-in"><div class="fchip"><i></i>Open to work</div></div></div>
+  <div class="fl d2" style="top:260px;left:2%;--c:#2f4fd6;--r0:-5deg;--r1:5deg;--dur:8s;--delay:-2s;--s:32px" data-s="0.06" aria-hidden="true"><div class="fl-in"><div class="fstar"><svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></div></div></div>
+  <div class="fl d2 hm" style="top:230px;right:4%;--c:#f8ebb6;--r0:-3deg;--r1:7deg;--dur:10s;--delay:-9s;--s:84px" data-s="-0.05" aria-hidden="true"><div class="fl-in"><div class="fcard"><svg viewBox="0 0 24 24"><path d="M12 3v9h9"/><path d="M20.5 15A9 9 0 1 1 9 3.5"/></svg></div></div></div>
   <div class="sec-head">
     <span class="chip">Say hello</span>
     <h2>Let's build something data-driven</h2>
@@ -530,12 +602,7 @@
 </footer>
 
 <script>
-  /* Announcement bar */
-  document.getElementById('announce-close').addEventListener('click', () => {
-    document.getElementById('announce').style.display = 'none';
-  });
-
-  /* Mobile menu */
+/* Mobile menu */
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   menuBtn.addEventListener('click', () => {
@@ -558,17 +625,43 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  /* Active nav link */
-  const navLinks = document.querySelectorAll('.nav-links a');
+  /* Nav: active link + sliding indicator + scrolled state */
+  const navEl = document.getElementById('nav');
+  const linksWrap = document.querySelector('.nav-links');
+  const navLinks = linksWrap.querySelectorAll('a');
+  const ind = document.getElementById('nav-ind');
+  const activeLink = () => linksWrap.querySelector('a.active');
+  const moveInd = (el) => {
+    if (!el) { ind.style.opacity = '0'; return; }
+    const w = el.offsetWidth + 'px', x = `translateX(${el.offsetLeft}px)`;
+    if (ind.style.opacity !== '1') {
+      ind.style.transition = 'none';
+      ind.style.width = w; ind.style.transform = x;
+      void ind.offsetWidth;
+      ind.style.transition = '';
+      ind.style.opacity = '1';
+    } else { ind.style.width = w; ind.style.transform = x; }
+  };
+  const setActive = (id) => {
+    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
+    moveInd(activeLink());
+  };
   const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
-      }
-    });
+    entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.getAttribute('id')); });
   }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
   document.querySelectorAll('section[id]').forEach(s => navObserver.observe(s));
+  navLinks.forEach(a => a.addEventListener('mouseenter', () => moveInd(a)));
+  linksWrap.addEventListener('mouseleave', () => moveInd(activeLink()));
+  window.addEventListener('resize', () => moveInd(activeLink()));
+  const onNavScroll = () => {
+    navEl.classList.toggle('scrolled', window.scrollY > 24);
+    if (window.scrollY < 200) { navLinks.forEach(l => l.classList.remove('active')); moveInd(null); }
+  };
+  window.addEventListener('scroll', onNavScroll, { passive: true });
+  onNavScroll();
+  document.addEventListener('click', (e) => {
+    if (!navEl.contains(e.target)) { mobileMenu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
+  });
 
   /* Count-up stats */
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -600,6 +693,27 @@
     ph.innerHTML = '<svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg><span>Excel Dashboard</span>';
     cricket.replaceWith(ph);
   });
+
+  /* Floating background parallax */
+  (() => {
+    const items = [...document.querySelectorAll('.fl')];
+    if (!items.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let base = [], vh = window.innerHeight, ticking = false;
+    const pageY = (el) => { let y = 0; for (let n = el; n; n = n.offsetParent) y += n.offsetTop; return y; };
+    const measure = () => { vh = window.innerHeight; base = items.map(el => pageY(el) + el.offsetHeight / 2); update(); };
+    const update = () => {
+      const mid = window.scrollY + vh / 2;
+      items.forEach((el, i) => {
+        const sp = parseFloat(el.dataset.s) || 0;
+        el.style.transform = `translate3d(0, ${((base[i] - mid) * sp).toFixed(1)}px, 0)`;
+      });
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener('resize', measure);
+    window.addEventListener('load', measure);
+    measure();
+  })();
 </script>
 
 </body>
