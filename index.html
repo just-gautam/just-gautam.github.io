@@ -79,18 +79,7 @@
     }
 
     /* ---------- HERO ---------- */
-    .hero { text-align: center; padding: 70px 24px 40px; max-width: 1100px; margin: auto; }
-    .suggest { display: inline-flex; align-items: center; gap: 12px; background: #f1f3f9; border-radius: 18px; padding: 8px 20px 8px 8px; font-weight: 500; font-size: 17px; margin-bottom: 70px; transition: transform .25s; }
-    .suggest:hover { transform: translateY(-2px); }
-    .suggest b { background: var(--brand); color: #fff; padding: 12px 22px; border-radius: 12px; font-weight: 600; font-size: 16px; }
-    .suggest svg { width: 16px; height: 16px; stroke: var(--gray); fill: none; stroke-width: 2; }
-    .trusted { display: inline-flex; align-items: center; gap: 12px; color: var(--ink-2); font-weight: 500; font-size: 17px; margin-bottom: 26px; }
-    .avatars { display: flex; }
-    .avatars i { width: 34px; height: 34px; border-radius: 50%; border: 2px solid #fff; display: grid; place-items: center; font-style: normal; font-size: 12px; font-weight: 700; margin-left: -9px; }
-    .avatars i:first-child { margin-left: 0; }
-    .avatars i:nth-child(1) { background: var(--blue); }
-    .avatars i:nth-child(2) { background: var(--peach); }
-    .avatars i:nth-child(3) { background: var(--mint); }
+    .hero { text-align: center; padding: 90px 24px 40px; max-width: 1100px; margin: auto; }
     .hero h1 { font-size: clamp(44px, 8.4vw, 98px); line-height: 1.02; font-weight: 700; letter-spacing: -0.045em; }
     .hero h1 .gray { color: #8c8c8f; display: block; }
     .hero .sub { max-width: 720px; margin: 36px auto 0; font-size: clamp(16px, 2vw, 19.5px); color: var(--ink-2); font-weight: 500; }
@@ -101,14 +90,6 @@
     .cta .row a { font-weight: 600; text-decoration: underline; text-underline-offset: 4px; font-size: 16px; }
     .cta .row a:hover { color: var(--brand); }
 
-    /* laurels */
-    .awards { margin: 64px auto 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 22px 40px; }
-    .laurel { display: flex; align-items: center; gap: 10px; }
-    .laurel svg { width: 34px; height: 64px; fill: #3a3a3d; flex: none; }
-    .laurel svg.flip { transform: scaleX(-1); }
-    .laurel .t { text-align: center; line-height: 1.25; }
-    .laurel .t b { display: block; font-size: 18px; font-weight: 800; letter-spacing: -.3px; }
-    .laurel .t span { font-size: 12.5px; color: var(--ink-2); font-weight: 500; }
 
     /* stats as pastel tabs */
     .stats { max-width: 1240px; margin: 56px auto 0; padding: 0 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
@@ -126,7 +107,6 @@
     .sec-head { text-align: center; margin-bottom: 54px; }
     .chip { display: inline-block; background: #f1f3f9; border-radius: 999px; padding: 8px 18px; font-size: 14px; font-weight: 600; color: var(--ink-2); margin-bottom: 18px; }
     section h2 { font-size: clamp(34px, 5.6vw, 62px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.06; }
-    section h2 .gray { color: #8c8c8f; }
     .section-intro { max-width: 720px; margin: 20px auto 0; color: var(--ink-2); font-size: 17.5px; font-weight: 500; }
 
     /* cards */
@@ -218,7 +198,6 @@
       .exp-card { padding: 26px 18px; }
       .exp-group { padding: 18px; }
       section { padding: 80px 16px 10px; }
-      .suggest { margin-bottom: 44px; font-size: 15px; }
       .announce { padding: 14px 52px 14px 16px; font-size: 13.5px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -229,12 +208,6 @@
   </style>
 </head>
 <body>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="laurel" viewBox="0 0 34 64">
-    <path d="M26 2c-6 3-9 8-9 13 4-1 8-5 9-13Zm-12 6c-5 3-6 8-5 12 4-2 6-7 5-12Zm14 12c-6 1-10 5-11 10 5 0 10-3 11-10ZM10 22c-4 3-4 8-2 12 4-2 5-8 2-12Zm17 13c-6 0-10 4-11 9 5 1 10-2 11-9ZM9 36c-3 4-2 9 1 12 3-3 3-8-1-12Zm14 14c-5 0-8 3-9 7 4 1 8-1 9-7Zm-8 1c-2 3-1 7 2 9 1-3 0-7-2-9Z"/>
-  </symbol>
-</svg>
 
 <div class="announce" id="announce">
   Open to data analyst roles &amp; internships — let's work together. <a href="#contact">Get in touch</a>
@@ -274,13 +247,7 @@
 </nav>
 
 <header class="hero" id="top">
-  <a class="suggest" href="#contact">
-    <b>Let's talk</b> Have a data problem to solve?
-    <svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
-  </a>
-  <div class="trusted">
-    <div class="avatars"><i>SQL</i><i>Py</i><i>BI</i></div>
-    Data Analyst · MCA Student · Delhi
+  Data Analyst · MCA Student · Delhi
   </div>
   <h1>Hi, I'm Gautam Bhardwaj<span class="gray">Data Analyst</span></h1>
   <p class="sub">
@@ -296,12 +263,6 @@
       <a href="#projects">See my work</a>
     </div>
   </div>
-
-  <div class="awards">
-    <div class="laurel"><svg><use href="#laurel"/></svg><div class="t"><b>Celonis</b><span>Process Mining Certified</span></div><svg class="flip"><use href="#laurel"/></svg></div>
-    <div class="laurel"><svg><use href="#laurel"/></svg><div class="t"><b>IIT Guwahati</b><span>Summer Analytics 2026</span></div><svg class="flip"><use href="#laurel"/></svg></div>
-    <div class="laurel"><svg><use href="#laurel"/></svg><div class="t"><b>CBSE × Intel</b><span>AI For All Badge</span></div><svg class="flip"><use href="#laurel"/></svg></div>
-  </div>
 </header>
 
 <div class="stats">
@@ -314,7 +275,7 @@
 <section id="projects">
   <div class="sec-head">
     <span class="chip">Selected work</span>
-    <h2>Projects that turn data <span class="gray">into decisions</span></h2>
+    <h2>Projects that turn data into decisions</h2>
     <p class="section-intro">
       Explore my work to see how I can help organizations uncover insights, optimize processes, and make data-driven decisions for success.
     </p>
@@ -392,7 +353,7 @@
 <section id="skills">
   <div class="sec-head">
     <span class="chip">Toolkit</span>
-    <h2>The only stack you need <span class="gray">for every data task</span></h2>
+    <h2>The only stack you need for every data task</h2>
   </div>
   <div class="skill-groups">
     <div class="skill-group c-blue reveal">
@@ -441,7 +402,7 @@
 <section id="experience">
   <div class="sec-head">
     <span class="chip">Journey</span>
-    <h2>Real work, <span class="gray">Real impact</span></h2>
+    <h2>Real work, Real impact</h2>
   </div>
   <div class="exp-card reveal">
     <div class="exp-top">
@@ -500,7 +461,7 @@
 <section id="certificates">
   <div class="sec-head">
     <span class="chip">Credentials</span>
-    <h2>Certified &amp; <span class="gray">Verified</span></h2>
+    <h2>Certified &amp; Verified</h2>
   </div>
   <div class="grid">
     <div class="card c-blue reveal">
@@ -535,7 +496,7 @@
 <section id="contact">
   <div class="sec-head">
     <span class="chip">Say hello</span>
-    <h2>Let's build something <span class="gray">data-driven</span></h2>
+    <h2>Let's build something data-driven</h2>
   </div>
   <div class="contact-grid">
     <a class="contact-card reveal" href="mailto:gautambhardwaj261203@gmail.com">
